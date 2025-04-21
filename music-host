@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>背景音乐控制</title>
+  <style>
+    body { margin: 0; }
+    #toggleBtn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <!-- 背景音乐 -->
+  <audio id="bgm" autoplay loop muted>
+    <source src="https://your-mp3-file-link.mp3" type="audio/mpeg">
+  </audio>
+  <!-- 声音控制按钮 -->
+  <button id="toggleBtn">🔇 音乐已静音</button>
+
+  <script>
+    // 获取音频元素和按钮
+    const audio = document.getElementById('bgm');
+    const btn = document.getElementById('toggleBtn');
+
+    // 监听按钮点击事件
+    btn.addEventListener('click', () => {
+      audio.muted = !audio.muted;  // 切换静音/非静音
+      btn.textContent = audio.muted ? '🔇 音乐已静音' : '🔊 音乐已开启';  // 更新按钮文本
+    });
+  </script>
+</body>
+</html>
